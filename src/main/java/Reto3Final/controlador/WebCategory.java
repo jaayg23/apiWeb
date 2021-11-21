@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Reto3Final.controlador;
 
 import Reto3Final.entidades.Category;
@@ -26,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/Category")
+@CrossOrigin(origins = "*", methods ={RequestMethod.GET, RequestMethod.POST})
 public class WebCategory {
     @Autowired
     private ServiciosCategory servicios;
