@@ -26,18 +26,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/Category")
-@CrossOrigin(origins = "*", methods ={RequestMethod.GET, RequestMethod.POST})
 public class WebCategory {
     @Autowired
     private ServiciosCategory servicios;
     @GetMapping("/all")
-    public List<Category> getCategory(){
+    public List<Category> getAll(){
         return servicios.getALL();
     }
     
     @GetMapping("/{id}")
-    public Optional<Category> getCategory(@PathVariable("id") int idCategory){
-        return servicios.getCategory(idCategory);
+    public Optional<Category> getCategory(@PathVariable("id") int id){
+        return servicios.getCategory(id);
     }
     
     @PostMapping("/save")
