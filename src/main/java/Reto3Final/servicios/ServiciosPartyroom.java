@@ -35,7 +35,7 @@ public class ServiciosPartyroom {
             return metodosCrud.save(partyroom);
         }else{
             Optional<Partyroom> evt=metodosCrud.getPartytoom(partyroom.getId());
-            if(evt.isEmpty()){
+            if(evt == null){
                 return metodosCrud.save(partyroom);
             }else{
                 return partyroom;

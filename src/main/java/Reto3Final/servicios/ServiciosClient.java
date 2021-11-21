@@ -34,7 +34,7 @@ public class ServiciosClient {
             return metodosCrud.save(client);
         }else {
             Optional<Client> clientAux = metodosCrud.getClient(client.getIdClient());
-            if(clientAux.isEmpty()){
+            if(clientAux == null){
                 return metodosCrud.save(client);
             }else {
                 return client;

@@ -34,7 +34,7 @@ public class ServiciosReservation {
             return metodosCrud.save(reservation);
         } else {
             Optional<Reservation> reservationAux = metodosCrud.getReservation(reservation.getIdReservation());
-            if(reservationAux.isEmpty()){
+            if(reservationAux == null){
                 return metodosCrud.save(reservation);
             } else {
                 return reservation;

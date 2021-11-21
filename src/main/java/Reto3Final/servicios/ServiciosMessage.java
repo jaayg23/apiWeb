@@ -30,7 +30,7 @@ public class ServiciosMessage {
             return metodosCrud.save(message);
         } else {
             Optional<Message> messageAux = metodosCrud.getMessage(message.getIdMessage());
-            if(messageAux.isEmpty()){
+            if(messageAux == null){
                 return metodosCrud.save(message);
             } else {
                 return message;
