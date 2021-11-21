@@ -34,7 +34,7 @@ public class ServiciosCategory {
             return metodosCrud.save(category);
         }else{
             Optional<Category> evt=metodosCrud.getCategory(category.getId());
-            if(evt.isEmpty()){
+            if(evt == null){
                 return metodosCrud.save(category);
             }else{
                 return category;
