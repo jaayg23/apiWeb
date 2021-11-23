@@ -31,7 +31,7 @@ public class ServiciosScore {
             return repositorioScore.save(score);
         } else {
             Optional<Score> scoreAux = repositorioScore.getScore(score.getIdScore());
-            if(scoreAux.isEmpty()){
+            if(scoreAux == null){
                 return repositorioScore.save(score);
             } else {
                 return score;
