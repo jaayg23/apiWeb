@@ -28,5 +28,8 @@ public class RepositorioPartyroom {
     public Partyroom save(Partyroom partyroom){
         return interfacePartyroom.save(partyroom);
     }
-            
+     
+    public void delPartyroom(Partyroom partyroom){
+        interfacePartyroom.delete(partyroom);
+    }
 }

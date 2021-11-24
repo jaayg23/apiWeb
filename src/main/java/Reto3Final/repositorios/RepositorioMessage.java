@@ -29,4 +29,8 @@ public class RepositorioMessage {
     public Message save(Message message){
         return interfaceMessage.save(message);
     }
+    
+    public void delMessage(Message message){
+        interfaceMessage.delete(message);
+    }
 }

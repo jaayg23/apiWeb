@@ -25,6 +25,7 @@ public class Score implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idScore;
     private String messageText;
+    private Integer stars;
     
     @OneToOne
     @JsonIgnoreProperties("score")

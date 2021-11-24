@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Reto3Final.servicios;
 
 import Reto3Final.entidades.Partyroom;
@@ -41,5 +38,44 @@ public class ServiciosPartyroom {
                 return partyroom;
             }
         }
+    }
+    
+    public Partyroom update(Partyroom partyroom){
+        if(partyroom.getId() != null){
+            Optional<Partyroom> roomAux = metodosCrud.getPartytoom(partyroom.getId());
+            
+            if(!roomAux.isPresent()){
+                
+                if(partyroom.getName() != null){
+                    roomAux.get().setName(partyroom.getName());
+                }
+                
+                if(partyroom.getOwner()!= null){
+                    roomAux.get().setOwner(partyroom.getOwner());
+                }
+                
+                if(partyroom.getCapacity()!= null){
+                    roomAux.get().setCapacity(partyroom.getCapacity());
+                }
+                
+                if(partyroom.getDescription() != null){
+                    roomAux.get().setDescription(partyroom.getDescription());
+                }
+                
+                metodosCrud.save(roomAux.get());
+                return roomAux.get();
+            } else {
+                return partyroom;
+            }
+        } else {
+            return partyroom;
+        }
+    }
+    
+    public Boolean delRoom(Integer id){
+        Boolean aBoolean = getPartyroom(id).map(partyroom -> {metodosCrud.delPartyroom(partyroom);
+        return true;
+        }).orElse(false);
+        return aBoolean;
     }
 }

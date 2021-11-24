@@ -29,4 +29,8 @@ public class RepositorioClient {
     public Client save(Client client){
         return interfaceClient.save(client);
     }
+    
+    public void delClient(Client client){
+        interfaceClient.delete(client);
+    }
 }

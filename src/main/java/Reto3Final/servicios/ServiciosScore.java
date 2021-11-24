@@ -38,4 +38,34 @@ public class ServiciosScore {
             }
         }
     }
+    
+    public Score update(Score score){
+        if(score.getIdScore() != null){
+            Optional<Score> scoreAux = repositorioScore.getScore(score.getIdScore());
+            if(!scoreAux.isEmpty()){
+                
+                if(score.getMessageText() != null){
+                    scoreAux.get().setMessageText(score.getMessageText());
+                }
+                
+                if(score.getStars() != null){
+                    scoreAux.get().setStars(score.getStars());
+                }
+                
+                repositorioScore.save(scoreAux.get());
+                return scoreAux.get();
+            } else {
+                return score;
+            }
+        } else {
+            return score;
+        }
+    }
+    
+    public Boolean delScore(Integer id){
+        Boolean aBoolean = getScore(id).map(score -> {repositorioScore.delScore(score);
+        return true;
+        }).orElse(false);
+        return aBoolean;
+    }
 }

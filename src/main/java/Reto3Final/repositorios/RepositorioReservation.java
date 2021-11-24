@@ -29,5 +29,9 @@ public class RepositorioReservation {
     public Reservation save(Reservation reservation){
         return interfaceReservation.save(reservation);
     }
+    
+    public void delReservation(Reservation reservation){
+        interfaceReservation.delete(reservation);
+    }
 }
 

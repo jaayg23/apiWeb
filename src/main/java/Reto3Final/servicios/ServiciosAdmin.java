@@ -38,4 +38,37 @@ public class ServiciosAdmin {
             }
         }
     }
+    
+    public Admin update(Admin admin){
+        if(admin.getIdAdmin() != null){
+            Optional<Admin> auxAdmin = repositorioAdmin.getAdmin(admin.getIdAdmin());
+            if(!auxAdmin.isPresent()){
+                if(admin.getName() != null){
+                    auxAdmin.get().setName(admin.getName());
+                }
+                
+                if(admin.getEmail() != null){
+                    auxAdmin.get().setEmail(admin.getEmail());
+                }
+                
+                if(admin.getPassword() != null){
+                    auxAdmin.get().setPassword(admin.getPassword());
+                }
+                
+                repositorioAdmin.save(auxAdmin.get());
+                return auxAdmin.get();
+            } else {
+                return admin;
+            }
+        } else {
+            return admin;
+        }
+    }
+    
+    public Boolean delAdmin(Integer id){
+        Boolean aBoolean = getAdmin(id).map(admin -> {repositorioAdmin.delAdmin(admin);
+        return true;
+        }).orElse(false);
+        return aBoolean;
+    }
 }

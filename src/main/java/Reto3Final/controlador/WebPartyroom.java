@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import Reto3Final.entidades.Partyroom;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
@@ -23,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RestController
 @RequestMapping("api/Partyroom")
-@CrossOrigin(origins = "*", methods ={RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "*", methods ={RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class WebPartyroom {
     
     @Autowired
@@ -44,4 +46,15 @@ public class WebPartyroom {
         return servicios.save(partyroom);
     } 
     
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Partyroom update(@RequestBody Partyroom partyroom){
+        return servicios.update(partyroom);
+    }
+    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Boolean delPartyroom(@PathVariable Integer id){
+        return servicios.delRoom(id);
+    }
 }

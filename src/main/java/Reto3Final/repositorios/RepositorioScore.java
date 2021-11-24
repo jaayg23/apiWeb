@@ -29,4 +29,8 @@ public class RepositorioScore {
     public Score save(Score score){
         return interfaceScore.save(score);
     }
+    
+    public void delScore(Score score){
+        interfaceScore.delete(score);
+    }
 }

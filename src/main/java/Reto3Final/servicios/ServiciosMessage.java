@@ -37,4 +37,28 @@ public class ServiciosMessage {
             }
         }
     }
+    
+    public Message update(Message message){
+        if(message.getIdMessage() == null){
+            Optional<Message> messageAux = metodosCrud.getMessage(message.getIdMessage());
+            if(!messageAux.isPresent()){
+                if(message.getMessageText() != null){
+                    messageAux.get().setMessageText(message.getMessageText());
+                }
+                metodosCrud.save(messageAux.get());
+                return messageAux.get();
+            } else {
+                return message;
+            }
+        } else {
+            return message;
+        }
+    }
+    
+    public Boolean delMessage(Integer id){
+        Boolean aBoolean = getMessage(id).map(message -> {metodosCrud.delMessage(message);
+        return true;
+        }).orElse(false);
+        return aBoolean;
+    }
 }

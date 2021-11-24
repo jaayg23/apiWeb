@@ -29,4 +29,8 @@ public class RepositorioAdmin {
     public Admin save(Admin admin){
         return interfaceAdmin.save(admin);
     }
+    
+    public void delAdmin(Admin admin){
+        interfaceAdmin.delete(admin);
+    }
 }
