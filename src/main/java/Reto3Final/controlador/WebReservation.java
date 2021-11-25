@@ -2,6 +2,8 @@
 package Reto3Final.controlador;
 
 import Reto3Final.entidades.Reservation;
+import Reto3Final.entidades.especificas.CountClient;
+import Reto3Final.entidades.especificas.StatusAmount;
 import Reto3Final.servicios.ServiciosReservation;
 import java.util.List;
 import java.util.Optional;
@@ -60,4 +62,18 @@ public class WebReservation {
         return serviciosReservation.delReservation(id);
     }
     
+    @GetMapping("/report-status")
+    public StatusAmount getStatusReport(){
+         return serviciosReservation.getStatusReport();
+    }
+    
+    @GetMapping("/report-clients")
+    public List<CountClient> getCountClient(){
+        return serviciosReservation.getTopClient();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getDatesReport(@PathVariable("dateOne") String d1, @PathVariable("dateTwo") String d2){
+        return serviciosReservation.getReservationPeriod(d1, d2);
+    }
 }
