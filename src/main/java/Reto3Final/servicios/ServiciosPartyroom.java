@@ -44,7 +44,7 @@ public class ServiciosPartyroom {
         if(partyroom.getId() != null){
             Optional<Partyroom> roomAux = metodosCrud.getPartytoom(partyroom.getId());
             
-            if(!roomAux.isPresent()){
+            if(roomAux.isPresent()){
                 
                 if(partyroom.getName() != null){
                     roomAux.get().setName(partyroom.getName());

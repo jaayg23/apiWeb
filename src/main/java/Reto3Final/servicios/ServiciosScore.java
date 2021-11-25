@@ -42,7 +42,7 @@ public class ServiciosScore {
     public Score update(Score score){
         if(score.getIdScore() != null){
             Optional<Score> scoreAux = repositorioScore.getScore(score.getIdScore());
-            if(!scoreAux.isEmpty()){
+            if(scoreAux.isPresent()){
                 
                 if(score.getMessageText() != null){
                     scoreAux.get().setMessageText(score.getMessageText());

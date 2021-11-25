@@ -41,7 +41,7 @@ public class ServiciosMessage {
     public Message update(Message message){
         if(message.getIdMessage() == null){
             Optional<Message> messageAux = metodosCrud.getMessage(message.getIdMessage());
-            if(!messageAux.isPresent()){
+            if(messageAux.isPresent()){
                 if(message.getMessageText() != null){
                     messageAux.get().setMessageText(message.getMessageText());
                 }

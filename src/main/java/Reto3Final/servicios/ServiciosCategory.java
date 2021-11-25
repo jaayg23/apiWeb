@@ -42,7 +42,7 @@ public class ServiciosCategory {
     public Category update(Category category){
         if(category.getId() != null){ //Verifica si el id no está vacío
             Optional<Category> categoryAux = metodosCrud.getCategory(category.getId()); //Crea un auxiliar en el que se guarda el id del elemento
-            if(!categoryAux.isPresent()){ //Verifica que el id no sea vacío
+            if(categoryAux.isPresent()){ //Verifica que el id no sea vacío
                 if(category.getName() != null){ //Verifica que el nombre no sea vacío
                     categoryAux.get().setName(category.getName()); //busca el nombre y sobreescribe el nombre actual que se consigue con .get()
                 }

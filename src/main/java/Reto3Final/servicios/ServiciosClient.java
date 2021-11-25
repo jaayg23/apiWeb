@@ -45,7 +45,7 @@ public class ServiciosClient {
     public Client update(Client client){
         if(client.getIdClient() != null){
             Optional<Client> auxClient = metodosCrud.getClient(client.getIdClient());
-            if(!auxClient.isPresent()){
+            if(auxClient.isPresent()){
                 if(client.getEmail() != null){
                     auxClient.get().setEmail(client.getEmail());
                 }

@@ -42,7 +42,7 @@ public class ServiciosAdmin {
     public Admin update(Admin admin){
         if(admin.getIdAdmin() != null){
             Optional<Admin> auxAdmin = repositorioAdmin.getAdmin(admin.getIdAdmin());
-            if(!auxAdmin.isPresent()){
+            if(auxAdmin.isPresent()){
                 if(admin.getName() != null){
                     auxAdmin.get().setName(admin.getName());
                 }

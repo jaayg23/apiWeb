@@ -42,7 +42,7 @@ public class ServiciosReservation {
     public Reservation update(Reservation reservation){
         if(reservation.getIdReservation() == null){
             Optional<Reservation> reservationAux = metodosCrud.getReservation(reservation.getIdReservation());
-            if(!reservationAux.isEmpty()){
+            if(reservationAux.isPresent()){
                 if(reservation.getStartDate() != null){
                     reservationAux.get().setStartDate(reservation.getStartDate());
                 }
